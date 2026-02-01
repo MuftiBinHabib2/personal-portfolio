@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | Creative Designer & Developer</title>
+  <meta name="description"
+    content="A premium personal portfolio showcasing creative projects and expertise in development and design." />
+  <!-- Preconnect to Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;600;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="app">
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">PORTFOLIO</a>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-bg" style="background-image: url('/assets/hero-bg.png');"></div>
+        <div class="glass-card hero-content">
+          <h1 class="fade-in">Hi, I'm <span class="gradient-text">Mufti Bin Habib</span></h1>
+          <p class="fade-in-delay">Creative Developer & Designer building digital experiences that matter.</p>
+          <div class="hero-btns fade-in-delay-large">
+            <a href="#projects" class="btn primary">View Projects</a>
+            <a href="#contact" class="btn secondary">Get In Touch</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container">
+          <h2 class="section-title">About Me</h2>
+          <div class="about-grid">
+            <div class="about-text">
+              <p>I'm a passionate developer dedicated to creating intuitive and visually stunning web experiences. With
+                a keen eye for detail and a love for modern technologies, I bridge the gap between design and
+                functionality.</p>
+            </div>
+            <div class="skills-container">
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React</span>
+              <span class="skill-tag">CSS3</span>
+              <span class="skill-tag">Vite</span>
+              <span class="skill-tag">UI/UX</span>
+              <span class="skill-tag">Node.js</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" class="section">
+        <div class="container">
+          <h2 class="section-title">Showcase</h2>
+          <div class="projects-grid">
+            <!-- Project Item 1 -->
+            <div class="project-card">
+              <div class="project-img">
+                <img src="/assets/project-placeholder.png" alt="Project 1">
+              </div>
+              <div class="project-info">
+                <h3>Project Name One</h3>
+                <p>A brief description of this amazing project and the technologies used to build it.</p>
+                <a href="#" class="project-link">Learn More &rarr;</a>
+              </div>
+            </div>
+            <!-- Project Item 2 -->
+            <div class="project-card">
+              <div class="project-img">
+                <img src="/assets/project-placeholder.png" alt="Project 2">
+              </div>
+              <div class="project-info">
+                <h3>Project Name Two</h3>
+                <p>Exploring the intersection of design and data with this interactive visualization.</p>
+                <a href="#" class="project-link">Learn More &rarr;</a>
+              </div>
+            </div>
+            <!-- Project Item 3 -->
+            <div class="project-card">
+              <div class="project-img">
+                <img src="/assets/project-placeholder.png" alt="Project 3">
+              </div>
+              <div class="project-info">
+                <h3>Project Name Three</h3>
+                <p>A functional and sleek application built for productivity and seamless user flow.</p>
+                <a href="#" class="project-link">Learn More &rarr;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section">
+        <div class="container">
+          <h2 class="section-title">Let's Connect</h2>
+          <div class="glass-card contact-form-wrapper">
+            <form id="contact-form">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="John Doe" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="john@example.com" required>
+              </div>
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="5" placeholder="Your message here..." required></textarea>
+              </div>
+              <button type="submit" class="btn primary">Send Message</button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Your Name. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#">LinkedIn</a>
+          <a href="#">GitHub</a>
+          <a href="#">Twitter</a>
+        </div>
+      </div>
+    </footer>
+  </div>
+  <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
