@@ -1,0 +1,10 @@
+# VisDrone dataset configuration
+path: ../datasets/VisDrone  # dataset root dir
+train: VisDrone2019-DET-train/images
+val: VisDrone2019-DET-val/images
+test: VisDrone2019-DET-test-dev/images
+
+# Classes
+names:
+  0: human
+  1: car
