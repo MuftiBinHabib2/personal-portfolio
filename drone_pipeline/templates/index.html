@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroneVision AI | Aerial Intelligence</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-glow"></div>
+    
+    <nav>
+        <div class="logo">
+            <span class="logo-icon">🚁</span>
+            <h1>DroneVision <span class="accent">AI</span></h1>
+        </div>
+        <div class="nav-links">
+            <span class="status">System Online</span>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <h2>Aerial Object Analysis <span class="gradient-text">Pipeline</span></h2>
+            <p>High-precision detection and counting for drone surveillance imagery.</p>
+        </section>
+
+        <div class="dashboard">
+            <div class="sidebar">
+                <div class="card upload-card">
+                    <h3>Upload Image</h3>
+                    <p>Drop your aerial photo here</p>
+                    <input type="file" id="imageInput" accept="image/*" hidden>
+                    <label for="imageInput" class="btn-primary">Choose File</label>
+                    <div id="fileName" class="file-name"></div>
+                    <button id="analyzeBtn" class="btn-secondary" disabled>Analyze Scene</button>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Humans</span>
+                        <span id="humanCount" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Vehicles</span>
+                        <span id="carCount" class="stat-value">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viewport">
+                <div class="viewport-header">
+                    <h3>Live Viewport</h3>
+                    <div class="controls">
+                        <span class="badge">YOLOv8 Real-time</span>
+                    </div>
+                </div>
+                <div class="image-container">
+                    <div id="loader" class="loader-hidden">
+                        <div class="spinner"></div>
+                        <p>Processing Aerial Data...</p>
+                    </div>
+                    <img id="resultImage" src="https://images.unsplash.com/photo-1473960104312-d2e11b5362f1?auto=format&fit=crop&q=80&w=1000" alt="Result Viewport">
+                    <div id="placeholderText" class="placeholder">Awaiting input data...</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

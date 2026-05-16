@@ -3,10 +3,10 @@ from ultralytics import YOLO
 import numpy as np
 
 class DroneAnalysisPipeline:
-    def __init__(self, model_path='yolov8n.pt'):
+    def __init__(self, model_path='yolov8s.pt'):
         """
         Initializes the pipeline with a YOLOv8 model.
-        Default is the nano model for speed.
+        Using yolov8s (Small) for better balance of speed and detection of small objects.
         """
         print(f"Initializing pipeline with model: {model_path}")
         self.model = YOLO(model_path)
@@ -26,8 +26,18 @@ class DroneAnalysisPipeline:
             print(f"Error: Could not read image at {image_path}")
             return None
 
-        # Run inference
-        results = self.model(img)[0]
+        # --- NEW: Contrast Enhancement for Tiny Objects ---
+        # Apply CLAHE to help small objects stand out
+        lab = cv2.cvtColor(img, cv2.COLOR_BGR2LAB)
+        l, a, b = cv2.split(lab)
+        clahe = cv2.createCLAHE(clipLimit=3.0, tileGridSize=(8,8))
+        cl = clahe.apply(l)
+        limg = cv2.merge((cl, a, b))
+        enhanced_img = cv2.cvtColor(limg, cv2.COLOR_LAB2BGR)
+        # --------------------------------------------------
+
+        # Run inference with ultra-high resolution (1280px)
+        results = self.model(enhanced_img, imgsz=1280)[0]
         
         human_count = 0
         car_count = 0
@@ -37,7 +47,10 @@ class DroneAnalysisPipeline:
             cls = int(box.cls[0])
             conf = float(box.conf[0])
             
-            if conf < 0.25: # Confidence threshold
+            # Ultra-low threshold for tiny humans (0.10)
+            # Cars are easier to detect, so we can keep them higher if needed, 
+            # but let's be aggressive for now.
+            if conf < 0.10: 
                 continue
                 
             label = ""
@@ -76,7 +89,7 @@ class DroneAnalysisPipeline:
             cv2.imwrite(output_path, img)
             print(f"Result saved to {output_path}")
             
-        return img, human_count
+        return img, {'human': human_count, 'car': car_count}
 
     def track_video(self, video_path, output_path):
         """

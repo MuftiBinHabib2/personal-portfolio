@@ -17,7 +17,8 @@ def run_demo():
 
     # 3. Run analysis
     print("Running detection on sample drone image...")
-    img, human_count = pipeline.analyze_image(sample_img, output_path=output_img)
+    img, counts = pipeline.analyze_image(sample_img, output_path=output_img)
+    human_count = counts['human']
     
     print("-" * 30)
     print(f"DEMO COMPLETE")
